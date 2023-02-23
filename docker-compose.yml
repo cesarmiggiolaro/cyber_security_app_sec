@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+    # dvwa-environment:
+    #    container_name: dvwa
+    #    build:
+    #        context: ./dvwa
+    #        dockerfile: Dockerfile
+    #    extra_hosts:
+    #        - "dvwa.localhost:127.0.0.1"
+    #    hostname: dvwa.localhost
+    #    domainname: localhost 
+    #    ports:
+    #        - 80:80
+    #        - 3306:3306
+    #    networks:
+    #      - tcc-networks
+    juice-shop-environment:
+       container_name: juice-shop
+       build:
+           context: ./juice-shop
+           dockerfile: Dockerfile
+       extra_hosts:
+           - "juice-shop.localhost:127.0.0.1"
+       hostname: juice-shop.localhost
+       domainname: localhost 
+       ports:
+           - 3000:3000
+       networks:
+         - tcc-networks
+    # sonarqube-environment:
+    #     container_name: sonarqube
+    #     build:
+    #         context: ./sonarqube
+    #         dockerfile: Dockerfile
+    #     extra_hosts:
+    #         - "sonarqube.localhost:127.0.0.1"
+    #     hostname: sonarqube.localhost
+    #     domainname: localhost 
+    #     ports:
+    #         - 9000:9000
+    #     networks:
+    #       - tcc-networks
+networks:
+  tcc-networks:
+    driver: bridge
